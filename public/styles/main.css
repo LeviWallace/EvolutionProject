@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+
+.navbar {
+    background-color: #800000;
+    color: white;
+}
+
+.page-container {
+    margin-top: 75px;
+}
+=======
 body {
     background: #DDDDDD;
 }
@@ -10,3 +25,4 @@ body {
 .page-container {
     margin-top: 75px;
 }
+>>>>>>> f15df0478baf4f89eba84dfd2fb815097273ec5b
