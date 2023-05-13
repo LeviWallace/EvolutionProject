@@ -1,14 +1,21 @@
 let canv = document.getElementById("simulation");
 let ctx = canv.getContext("2d");
 
+let table = document.getElementById("organismList")
+let running = true;
+
 let BACKGROUND_COLOR = "white";
 setInterval(main, 1000/60);
 
 
+function changeState(state)
+{
+    running = state;
+}
+
 function produceTraits(traits)
 {
     out = [];
-    console.log(traits);
     for (trait of traits)
     {
         out.push(trait + 0.1);
@@ -86,7 +93,6 @@ class Organism
     {
         ctx.fillStyle = this.color;
         ctx.beginPath();
-        console.log(this.x, this.y);
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
         ctx.fill();
     }
@@ -101,6 +107,32 @@ class Organism
 
 let organisms = [new Organism(100, 100, 1, 0.25, [0, 0, 0, 0])]
 
+function drawOrganismInCell(organism)
+{
+    let c = document.createElement("canvas");
+    let context = c.getContext("2d");
+    context.fillStyle = organism.color;
+    context.beginPath();
+    context.arc(c.width/2, c.height/2, this.radius, 0, 2 * Math.PI, false);
+    context.fill();
+    return c;
+}
+
+function updateTable()
+{
+    table.innerHTML = "";
+    let title = table.insertRow(0);
+    title.insertCell(0).innerHTML = "Organism";
+    title.insertCell(1).innerHTML = "Fitness";
+    organisms.filter(organism => { return organism.alive; }).forEach(organism => {
+        let row = table.insertRow();
+        let c0 = row.insertCell(0);
+        c0.innerHTML = drawOrganismInCell(organism);
+        let c1 = row.insertCell(1);
+        c1.innerHTML = organism.fitness;
+    })
+}
+
 function clear()
 {
     ctx.fillStyle = BACKGROUND_COLOR;
@@ -109,8 +141,11 @@ function clear()
 
 function main()
 {
-    update();
-    draw();
+    if (running)
+    {
+        update();
+        draw();
+    }
 }
 
 function update()
@@ -119,6 +154,7 @@ function update()
     {
         if (organism.alive) organism.update();
     }
+    updateTable();
 }
 
 function draw()
