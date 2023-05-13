@@ -28,6 +28,8 @@ body {
 
 /*CSS from https://www.w3schools.com/html/html_tables.asp  */
 table {
+    position: absolute;
+    top: 120px;
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 20%;
