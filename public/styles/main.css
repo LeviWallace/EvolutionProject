@@ -9,11 +9,34 @@ body {
 }
 
 #simulation {
+
     border: 1px solid black;
     display: block;
     margin: 50px auto;
 }
 
-.page-container {
+.pageContainer {
+    display: flex;
     margin-top: 75px;
 }
+
+/*CSS from https://www.w3schools.com/html/html_tables.asp  */
+table {
+    
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 20%;
+    margin-right: 5%;
+    margin-left: auto;
+    
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  /* tr:nth-child(even) {
+    background-color: #dddddd;
+  } */
