@@ -1,5 +1,6 @@
 body {
     background-color: rgb(255, 255, 255);
+    text-align: center;
 }
 
 
@@ -9,25 +10,27 @@ body {
 }
 
 #simulation {
-
     border: 1px solid black;
-    display: block;
-    margin: 50px auto;
+    
 }
 
-.pageContainer {
-    display: flex;
-    margin-top: 75px;
+#tableContainer {
+    display: inline-block;
+    margin-left: 100px;
+}
+#simContainer {
+    display: inline-block;
+    margin: 50px auto;
+}
+#buttonContainer > button {
+    margin: 30px 20px 0px;
 }
 
 /*CSS from https://www.w3schools.com/html/html_tables.asp  */
 table {
-    
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 20%;
-    margin-right: 5%;
-    margin-left: auto;
     
   }
   
