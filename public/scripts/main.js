@@ -7,6 +7,11 @@ let running = true;
 let BACKGROUND_COLOR = "white";
 setInterval(main, 1000/60);
 
+function clearing()
+{
+    console.log("here");
+    organisms = [];
+}
 
 function changeState(state)
 {
@@ -125,9 +130,10 @@ function updateTable()
     title.insertCell(0).innerHTML = "Organism";
     title.insertCell(1).innerHTML = "Fitness";
     organisms.filter(organism => { return organism.alive; }).forEach(organism => {
-        let row = table.insertRow();
+        let row = table.insertRow(-1);
         let c0 = row.insertCell(0);
-        c0.innerHTML = drawOrganismInCell(organism);
+        c0.innerHTML = "&nbsp;"
+        c0.style.backgroundColor = organism.color;
         let c1 = row.insertCell(1);
         c1.innerHTML = organism.fitness;
     })
